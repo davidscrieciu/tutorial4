@@ -35,11 +35,30 @@ public class LList implements Comparable<LList>{
 	
 	
 	/* setter */
-	public boolean set(int position, String d){
+	//public boolean set(int position, String d){
 		// set data of element at given position to d
 		// returns true if successful and false otherwise
-		return false;
+		
+		// return false;
+	// }
+	
+	public boolean set(int k, String s){ 
+		if (k<Node.length){
+			Node current = head;
+			for (int i=0;i<k;i++){
+				current = Node.getNext();
+			}
+			current.setData(s);
+			return true;
+		}return false;
 	}
+	
+	public void swap(int p1, int p2){
+		String v1 = getData(p1);
+		String v2 = getData(p2);
+		set(p1,v2); //the set is from the code above
+	}
+	
 	
 	/* add elements to the list */
 	public LList addBack(String d){
@@ -90,12 +109,22 @@ public class LList implements Comparable<LList>{
 	
 	/* remove elements from the list */
 	public String removeFront(){
-		// remove x_0 (return data of x_0)
-		return null;
+		if (size>0){
+		head = current.getNext();
+		size = size - 1;
+		}return null;
+		
+		// Node current = head;
+		//String d0 = current.getData();
+		//head = current.getNext();
 	}
 	
-	public String remove(int position){
-		// remove x_position (return data of x_position)
+	public String remove(int k){
+		Node current = head;
+		String d0;
+		for (int i=0; i<k; i+=1){
+			
+		}
 		return null;
 	}	
 	
@@ -105,6 +134,7 @@ public class LList implements Comparable<LList>{
 		// return -1 if d is not in the list
 		return -2;
 	}
+	
 	
 	@Override
 	public int compareTo(LList o){
